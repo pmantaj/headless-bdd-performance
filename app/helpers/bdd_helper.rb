@@ -1,0 +1,2 @@
+module BddHelper
+end
