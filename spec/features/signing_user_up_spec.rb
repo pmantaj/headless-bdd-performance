@@ -10,7 +10,7 @@ RSpec.feature "SigningUserUp", type: :feature do
     visit "/"
 
     expect(page).to have_content "Sign up"
-
+    
     click_link "Sign up"
 
     expect(page).to have_content "Password confirmation"

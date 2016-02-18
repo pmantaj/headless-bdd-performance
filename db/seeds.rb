@@ -6,16 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-20000.times do |i|
-  Customer.create!(
-      first_name: Faker::Name.first_name,
-      last_name: Faker::Name.last_name,
-      email: "#{Faker::Internet.user_name}#{i}@#{Faker::Internet.domain_name}",
-      country: Faker::Address.country,
-      city: Faker::Address.city,
-      postal_code: Faker::Address.postcode,
-      region: Faker::Address.state,
-      address_code: Faker::Address.street_address,
-      organisation_name: Faker::Company.name
-  )
+if Customer.count == 0
+  20000.times do |i|
+    Customer.create!(
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        email: "#{Faker::Internet.user_name}#{i}@#{Faker::Internet.domain_name}",
+        country: Faker::Address.country,
+        city: Faker::Address.city,
+        postal_code: Faker::Address.postcode,
+        region: Faker::Address.state,
+        address_code: Faker::Address.street_address,
+        organisation_name: Faker::Company.name
+    )
+  end
 end

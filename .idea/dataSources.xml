@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4237302902">
+  <component name="DataSourceManagerImpl" format="xml">
     <data-source source="LOCAL" name="Rails headless-bdd-performance: development" uuid="d1117613-ccc3-447e-b82f-23153b8deb42">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>

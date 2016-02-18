@@ -7,7 +7,7 @@ require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/poltergeist'
-require 'capybara-screenshot/rspec'
+#require 'capybara-screenshot/rspec'
 #Capybara.javascript_driver = :selenium
 Capybara.javascript_driver = :poltergeist
 Capybara.default_driver = :poltergeist
@@ -36,6 +36,10 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
   config.before :suite do
     Warden.test_mode!
+  end
+
+  config.after :each do
+    Warden.test_reset!
   end
 end
 
