@@ -11,13 +11,13 @@
         <object-id>2200</object-id>
         <comment>standard public schema</comment>
         <introspection-state-number>2972961</introspection-state-number>
-        <introspection-timestamp>2016-02-17.17:08:04.216</introspection-timestamp>
+        <introspection-timestamp>2016-02-18.22:46:42.388</introspection-timestamp>
       </schema>
       <schema id="3" parent="1" name="pg_catalog">
         <object-id>11</object-id>
         <comment>system catalog schema</comment>
         <introspection-state-number>720</introspection-state-number>
-        <introspection-timestamp>2016-02-07.20:12:25.918</introspection-timestamp>
+        <introspection-timestamp>2016-02-18.22:46:43.152</introspection-timestamp>
       </schema>
       <sequence id="4" parent="2" name="customers_id_seq">
         <object-id>18928</object-id>

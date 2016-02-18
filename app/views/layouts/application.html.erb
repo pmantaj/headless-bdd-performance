@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'disable-transition' %>
 </head>
 <body class="container">
   <% if user_signed_in? %>
@@ -12,7 +13,7 @@
     </a>
   <% end %>
 
-  <% if notice.present? %>
+<% if notice.present? %>
       <aside class="mymsg alert alert-info text-center center-block">
         <%= notice %>
       </aside>

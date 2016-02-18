@@ -17,7 +17,8 @@ if Customer.count == 0
         postal_code: Faker::Address.postcode,
         region: Faker::Address.state,
         address_code: Faker::Address.street_address,
-        organisation_name: Faker::Company.name
+        organisation_name: Faker::Company.name,
+        phone: Faker::PhoneNumber.cell_phone
     )
   end
 end

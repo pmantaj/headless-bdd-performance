@@ -1,0 +1,96 @@
+<div id="customer-form" class="row center-block">
+  <% if @customer.errors.any? %>
+      <div class="panel panel-danger col-md-offset-1">
+        <div class="panel-heading">
+          <h2 class="panel-title">
+            <%= pluralize(@customer.errors.count, "error") %>
+            prohibited this article from being saved:
+          </h2>
+          <div class="panel-body">
+            <ul>
+              <% @customer.errors.full_messages.each do |msg| %>
+                  <li>
+                    <%= msg %>
+                  </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+  <% end %>
+  <h2 class="text-center">Customer Profile</h2>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= "#{@customer.last_name} #{@customer.first_name}" %></h3>
+      </div>
+      <%= form_for(@customer, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3 col-lg-3 " align="center"> <img alt="<%= "#{@customer.first_name} #{@customer.last_name}" %>" src="<%= image_path('anonymous.png') %>" class="img-circle img-responsive"> </div>
+
+          <div class=" col-md-9 col-lg-9 ">
+              <table class="table table-user-information">
+                <tbody>
+                <tr>
+                  <td>First Name:</td>
+                  <td><%= f.text_field :first_name %></td>
+                </tr>
+                <tr>
+                  <td>Last Name:</td>
+                  <td><%= f.text_field :last_name %></td>
+                </tr>
+                <tr>
+                  <td>Company:</td>
+                  <td><%= f.text_field :organisation_name %></td>
+                </tr>
+
+                <tr>
+                <tr>
+                  <td>Country:</td>
+                  <td><%= f.text_field :country %></td>
+                </tr>
+                <tr>
+                  <td>Region:</td>
+                  <td><%= f.text_field :region %></td>
+                </tr>
+                <tr>
+                  <td>City:</td>
+                  <td><%= f.text_field :city %></td>
+                </tr>
+                <tr>
+                  <td>Postal Code:</td>
+                  <td><%= f.text_field :postal_code %></td>
+                </tr>
+                <tr>
+                  <td>Address:</td>
+                  <td><%= f.text_field :address_code %></td>
+                </tr>
+                <tr>
+                  <td>Email:</td>
+                  <td><%= f.text_field :email %></td>
+                </tr>
+                <td>Phone Number:</td>
+                <td><%= f.text_field :phone %></td>
+
+                </tr>
+
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <%= link_to root_url, method: :get, class: "btn btn-sm btn-primary" do %>
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        <% end %>
+        <span class="pull-right">
+          <span data-title='Update' data-form="<%= f.options[:html][:id] %>" data-method='put' data-toggle='modal' data-target='#update' data-email='<%= @customer.email %>' class="btn btn-sm btn-success">
+            <span class="glyphicon glyphicon-ok"></span>
+          </span>
+        </span>
+      </div>
+      <% end %>
+    </div>
+</div>
+
+<%= render "shared/modal_crud" %>

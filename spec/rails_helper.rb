@@ -8,11 +8,20 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/poltergeist'
 #require 'capybara-screenshot/rspec'
+
+#Capybara.register_driver :poltergeist_debug do |app|
+#  Capybara::Poltergeist::Driver.new(app, :inspector => true)
+#end
+
+#Capybara.javascript_driver = :poltergeist_debug
+#Capybara.default_driver = :poltergeist_debug
+
 #Capybara.javascript_driver = :selenium
 Capybara.javascript_driver = :poltergeist
 Capybara.default_driver = :poltergeist
 #Capybara.default_driver = :selenium
 Capybara.default_max_wait_time = 10
+#Capybara.raise_server_errors = false
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -71,4 +80,5 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.include Rails.application.routes.url_helpers
 end
