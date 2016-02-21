@@ -6,8 +6,13 @@ rvm:
 sudo: false
 
 before_script:
+  - psql -c 'create database myapp_test;' -U postgres
+  - cp config/database.travis.yml config/database.yml
+
+script:
   - bundle exec rake db:create
   - bundle exec rake db:migrate
+  - bundle exec rake spec
 
 deploy:
   provider: heroku

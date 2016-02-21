@@ -1,22 +1,22 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: headless_bdd
-  password: headless-bdd0192
+  username: postgres
   pool: 5
 
 development:
   <<: *default
-  database: headless-bdd_development
+  database: myapp_development
+
   host: localhost
 
 test:
   <<: *default
-  database: headless-bdd_test
+  database: myapp_test
   host: localhost
 
 production:
   <<: *default
-  database: headless-bdd_production
-  username: headless_bdd
+  database: myapp_production
+  username: myapp_user
   password: <%= ENV['HEADLESS-BDD_DATABASE_PASSWORD'] %>
