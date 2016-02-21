@@ -19,4 +19,4 @@ production:
   <<: *default
   database: myapp_production
   username: myapp_user
-  password: <%= ENV['HEADLESS-BDD_DATABASE_PASSWORD'] %>
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
