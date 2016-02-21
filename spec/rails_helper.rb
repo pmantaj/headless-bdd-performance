@@ -7,7 +7,7 @@ require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/poltergeist'
-#require 'capybara-screenshot/rspec'
+require 'capybara-screenshot/rspec'
 
 #Capybara.register_driver :poltergeist_debug do |app|
 #  Capybara::Poltergeist::Driver.new(app, :inspector => true)
