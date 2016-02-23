@@ -13,21 +13,21 @@ class CustomerController < ApplicationController
 
   def update
     @customer = Customer.find_by_id(params[:id])
-    if @customer.update(customer_params)
+    if @customer.present? && @customer.update(customer_params)
       flash[:notice] = "Successfully updated customer: #{@customer.email}"
       redirect_to @customer
     else
-      flash[:alert] = "Cannot update customer #{@customer.email}"
+      flash[:alert] = "Cannot update customer!"
       render action: "edit"
     end
   end
 
   def destroy
     @customer = Customer.find_by_id(params[:id])
-    if @customer.destroy
+    if @customer.present? && @customer.destroy
       flash[:notice] = "Successfully deleted customer: #{@customer.email}"
     else
-      flash[:alert] = "Cannot delete customer #{@customer.email}"
+      flash[:alert] = "Cannot delete customer!"
     end
     redirect_to action: "index"
   end
