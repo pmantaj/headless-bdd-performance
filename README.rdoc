@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/pmantaj/headless-bdd-performance.svg?branch=master)](https://travis-ci.org/pmantaj/headless-bdd-performance)
+{<img src="https://travis-ci.org/pmantaj/headless-bdd-performance.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/pmantaj/headless-bdd-performance]
 
 == README
 
