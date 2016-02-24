@@ -12,7 +12,7 @@ RSpec.feature "DeleteCustomers", type: :feature do
     scenario "#index" do
       visit "/"
 
-      delete_customer(@customer, true)
+      delete_customer(:customer => @customer, :pass => true)
 
       expect(page).to have_content("Successfully deleted customer: #{@customer.email}")
     end
@@ -23,7 +23,7 @@ RSpec.feature "DeleteCustomers", type: :feature do
       expect(page).to have_content(@customer.email)
       find('a[href="'+ customer_path(@customer) + '"][data-method="get"]').click
 
-      delete_customer(@customer, true)
+      delete_customer(:customer => @customer, :pass => true)
 
       expect(page).to have_content("Successfully deleted customer: #{@customer.email}")
     end
@@ -39,7 +39,7 @@ RSpec.feature "DeleteCustomers", type: :feature do
     scenario "#index" do
       visit "/"
 
-      delete_customer(@customer, false)
+      delete_customer(:customer => @customer, :pass => false)
 
       expect(page).to have_content("Cannot delete customer!")
     end
@@ -50,21 +50,23 @@ RSpec.feature "DeleteCustomers", type: :feature do
       expect(page).to have_content(@customer.email)
       find('a[href="'+ customer_path(@customer) + '"][data-method="get"]').click
 
-      delete_customer(@customer, false)
+      delete_customer(:customer => @customer, :pass => false)
 
       expect(page).to have_content("Cannot delete customer!")
     end
   end
 end
 
-def delete_customer(customer, pass)
-  expect(page).to have_content(customer.phone)
+private
 
-  find('button[data-title="Delete"][data-email="' + customer.email + '"]').click
+def delete_customer(args = {pass => false})
+  expect(page).to have_content(args[:customer].phone)
+
+  find('button[data-title="Delete"][data-email="' + args[:customer].email + '"]').click
   #page.driver.debug
 
-  if(!pass)
-    customer.destroy!
+  if(!args[:pass])
+    args[:customer].destroy!
   end
 
   within('div.modal.fade.in') do
